@@ -1,0 +1,5 @@
+package T4.Clase11_01_2018;
+
+public enum Especialidad {
+    ADMINISTRACION, MECANICA, HOSTELERIA, INFORMATICA, SANIDAD
+}
