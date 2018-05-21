@@ -8,23 +8,31 @@ import java.awt.event.ActionListener;
 class panel2 extends JPanel {
     JLabel label = new JLabel(" / ");
     JLabel label2 = new JLabel(" / ");
-    JTextField textFieldDia = new JTextField(5);
-    JTextField textFieldMes = new JTextField(5);
-    JTextField textFieldAnio = new JTextField(5);
+    JComboBox comboBoxDia = new JComboBox();
+    JComboBox comboBoxMes = new JComboBox();
+    JComboBox comboBoxAnio = new JComboBox();
     JButton buttonAceptar = new JButton("Aceptar");
     JButton buttonCancelar = new JButton("Cancelar");
+    Panel panel = null;
+    Frame2 frame2 = null;
 
-    panel panel = null;
-
-    public panel2(panel panel) {
+    public panel2(Panel panel, Frame2 frame2) {
+        comboBoxDia.addItem("  ");
+        comboBoxMes.addItem("  ");
+        comboBoxAnio.addItem("    ");
+        for (int cont = 1; cont <= 31; cont++) comboBoxDia.addItem(cont);
+        for (int cont = 1; cont <= 12; cont++) comboBoxMes.addItem(cont);
+        for (int cont = 1900; cont <= 2018; cont++) comboBoxAnio.addItem(cont);
+        this.panel = panel;
+        this.frame2 = frame2;
         JPanel panel3 = new JPanel();
         JPanel panel1 = new JPanel();
         add(panel3, BorderLayout.NORTH);
-        panel1.add(textFieldDia);
+        panel1.add(comboBoxDia);
         panel1.add(label);
-        panel1.add(textFieldMes);
+        panel1.add(comboBoxMes);
         panel1.add(label2);
-        panel1.add(textFieldAnio);
+        panel1.add(comboBoxAnio);
         JPanel panel2 = new JPanel();
         panel2.add(buttonAceptar);
         panel2.add(buttonCancelar);
@@ -34,29 +42,38 @@ class panel2 extends JPanel {
         Evento evento = new Evento();
         buttonAceptar.addActionListener(evento);
         buttonCancelar.addActionListener(evento);
-        this.panel = panel;
     }
 
-    private class Evento implements ActionListener {
+    public void setTextFieldFechaCorta(Panel panel, int dia, int mes, int anio) {
+        panel.textFieldFechaCorta.setText(dia + " / " + mes + " / " + anio);
+
+    }
+
+    public void setTextFieldFechaLarga(Panel panel, int dia, int mes, int anio) {
+        panel.textFieldFechaLarga.setText(dia + " de ");
+    }
+
+    public void cerrarVentana(Frame2 frame2) {
+        frame2.setVisible(false);
+    }
+
+    class Evento implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             Object botonPulsado = e.getSource();
             if (botonPulsado == buttonAceptar) {
-                String text = textFieldDia.getText() + "/" +
-                        textFieldMes.getText() + "/" + textFieldAnio.getText();
-                panel.rellenarFechaCorta(text);
-                panel.cerrarFrame2();
+                setTextFieldFechaCorta(panel,
+                        Integer.valueOf((Integer) comboBoxDia.getSelectedItem()),
+                        Integer.valueOf((Integer) comboBoxMes.getSelectedItem()),
+                        Integer.valueOf((Integer) comboBoxAnio.getSelectedItem()));
+                cerrarVentana(frame2);
             } else {
-                limpiarTexto();
+                comboBoxDia.setSelectedItem(1);
+                comboBoxMes.setSelectedItem(1);
+                comboBoxAnio.setSelectedItem(1);
             }
         }
-    }
-
-    private void limpiarTexto() {
-        textFieldDia.setText(null);
-        textFieldMes.setText(null);
-        textFieldAnio.setText(null);
     }
 
 }
