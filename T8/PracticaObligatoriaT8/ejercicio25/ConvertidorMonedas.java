@@ -11,6 +11,7 @@ public class ConvertidorMonedas {
         Marco1 marco1 = new Marco1();
         marco1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco1.setVisible(true);
+
     }
 }
 

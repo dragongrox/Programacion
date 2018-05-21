@@ -9,7 +9,7 @@ class Marco1 extends JFrame {
         Panel1 L1 = new Panel1();
         add(L1);
         pack();
-
+        setLocationRelativeTo(null);
     }
 
 }
