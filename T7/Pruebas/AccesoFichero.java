@@ -7,7 +7,7 @@ import java.io.IOException;
 public class AccesoFichero {
     public static void main(String[] args) {
         LeerFichero acceso = new LeerFichero();
-        acceso.leer("C:\\Users\\drago\\Google Drive\\README.txt");
+        acceso.leer("C:\\Users\\drago\\Desktop\\prueba.txt");
     }
 }
 
@@ -18,7 +18,7 @@ class LeerFichero {
         try {
             FileReader entrada = new FileReader(ruta);
 
-            int c = entrada.read();
+            int c = 0;
 
             while (c != -1) {
                 c = entrada.read();
