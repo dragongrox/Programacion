@@ -1,31 +1,28 @@
-package T7.Pruebas;
+package T7.Pruebas.Leer;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class AccesoFicheroBuffer {
+public class AccesoFichero {
     public static void main(String[] args) {
-        LeerFicheroBuffer acceso = new LeerFicheroBuffer();
+        LeerFichero acceso = new LeerFichero();
         acceso.leer("C:\\Users\\drago\\Desktop\\prueba.txt");
     }
 }
 
-class LeerFicheroBuffer {
+class LeerFichero {
 
 
     public void leer(String ruta) {
         try {
             FileReader entrada = new FileReader(ruta);
 
-            BufferedReader bufferedReader = new BufferedReader(entrada);
+            int c = 0;
 
-            String linea = "";
-
-            while (linea != null) {
-                linea = bufferedReader.readLine();
-                System.out.println(linea);
+            while (c != -1) {
+                c = entrada.read();
+                System.out.print((char) c);
             }
 
             entrada.close();

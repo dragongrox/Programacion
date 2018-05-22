@@ -1,4 +1,4 @@
-package T7.Pruebas;
+package T7.Pruebas.Escribir;
 
 import java.io.FileWriter;
 import java.io.IOException;
