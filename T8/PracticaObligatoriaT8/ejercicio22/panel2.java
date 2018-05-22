@@ -52,7 +52,7 @@ class panel2 extends JPanel {
     }
 
     public void setTextFieldFechaLarga(Panel panel, int dia, int mes, int anio) {
-        panel.textFieldFechaLarga.setText(dia + " de " + DateFormat.);
+        panel.textFieldFechaLarga.setText(dia + " de ");
     }
 
     public void cerrarVentana(Frame2 frame2) {
