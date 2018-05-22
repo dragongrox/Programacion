@@ -24,6 +24,8 @@ class LeerFichero {
                 c = entrada.read();
                 System.out.print((char) c);
             }
+
+            entrada.close();
         } catch (FileNotFoundException e) {
             System.out.println("No se ha encontrado el archivo");
         } catch (IOException e) {
