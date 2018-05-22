@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.util.GregorianCalendar;
 
 class panel2 extends JPanel {
     JLabel label = new JLabel(" / ");
@@ -50,7 +52,7 @@ class panel2 extends JPanel {
     }
 
     public void setTextFieldFechaLarga(Panel panel, int dia, int mes, int anio) {
-        panel.textFieldFechaLarga.setText(dia + " de ");
+        panel.textFieldFechaLarga.setText(dia + " de " + DateFormat.);
     }
 
     public void cerrarVentana(Frame2 frame2) {
@@ -69,9 +71,9 @@ class panel2 extends JPanel {
                         Integer.valueOf((Integer) comboBoxAnio.getSelectedItem()));
                 cerrarVentana(frame2);
             } else {
-                comboBoxDia.setSelectedItem(1);
-                comboBoxMes.setSelectedItem(1);
-                comboBoxAnio.setSelectedItem(1);
+                comboBoxDia.setSelectedIndex(0);
+                comboBoxMes.setSelectedIndex(0);
+                comboBoxAnio.setSelectedIndex(0);
             }
         }
     }

@@ -3,7 +3,7 @@ package T8.PracticaObligatoriaT8.ejercicio22;
 import javax.swing.*;
 import java.awt.*;
 
-class frame extends JFrame {
+class Frame extends JFrame {
     Toolkit t = Toolkit.getDefaultToolkit();
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -15,10 +15,12 @@ class frame extends JFrame {
         return (int) (porcentaje * screenSize.width / 100f);
     }
 
-    public frame() {
+    public Frame() {
         setSize(convertirAncho(50), convertirAlto(50));
         setTitle("Ejercicio 22");
-        panel L1 = new panel();
+        Panel L1 = new Panel();
         add(L1);
+        setLocationRelativeTo(null);
+
     }
 }
