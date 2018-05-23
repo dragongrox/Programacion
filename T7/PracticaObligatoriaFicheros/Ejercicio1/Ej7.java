@@ -1,4 +1,4 @@
-package T7.PracticaObligatoriaFicheros.EjerciciosUsandoObjetosFILE;
+package T7.PracticaObligatoriaFicheros.EjerciciosUsandoObjetosFILE.Ejercicio1;
 
 import java.io.File;
 import java.util.Scanner;
