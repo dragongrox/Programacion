@@ -3,7 +3,7 @@ package T8.PracticaObligatoriaT8.ejercicio20;
 import javax.swing.*;
 import java.awt.*;
 
-class Frame extends JFrame {
+public class Frame extends JFrame {
     Toolkit t = Toolkit.getDefaultToolkit();
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 

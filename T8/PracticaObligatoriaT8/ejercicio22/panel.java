@@ -5,11 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class Panel extends JPanel {
+public class Panel extends JPanel {
     JButton buttonFechas = new JButton("Introducir Fecha de Nacimiento");
     public JTextField textFieldFechaCorta = new JTextField(5);
     public JTextField textFieldFechaLarga = new JTextField(5);
-    Frame2 frame2 = null;
+    public Frame2 frame2 = null;
 
     public Panel() {
         JPanel jPanel = new JPanel();
@@ -22,10 +22,6 @@ class Panel extends JPanel {
         jPanel.setLayout(new GridLayout(3, 1, 20, 20));
         Evento evento = new Evento();
         buttonFechas.addActionListener(evento);
-    }
-
-    public void setTextFieldFechaCorta(String text) {
-        textFieldFechaCorta.setText(text);
     }
 
     public class Evento implements ActionListener {

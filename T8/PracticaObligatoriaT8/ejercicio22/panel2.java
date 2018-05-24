@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 class panel2 extends JPanel {
@@ -15,8 +17,8 @@ class panel2 extends JPanel {
     JComboBox comboBoxAnio = new JComboBox();
     JButton buttonAceptar = new JButton("Aceptar");
     JButton buttonCancelar = new JButton("Cancelar");
-    Panel panel = null;
-    Frame2 frame2 = null;
+    public Panel panel = null;
+    public Frame2 frame2 = null;
 
     public panel2(Panel panel, Frame2 frame2) {
         comboBoxDia.addItem("  ");
@@ -52,28 +54,37 @@ class panel2 extends JPanel {
     }
 
     public void setTextFieldFechaLarga(Panel panel, int dia, int mes, int anio) {
-        panel.textFieldFechaLarga.setText(dia + " de ");
+        Calendar calendar = new GregorianCalendar();
+        calendar.set(Calendar.YEAR, anio);
+        calendar.set(Calendar.MONTH, mes);
+        calendar.set(Calendar.DAY_OF_MONTH, dia);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMMM/yyyy");
+        panel.textFieldFechaLarga.setText(sdf.format(calendar.getTime()).replace("/", " de "));
     }
 
-    public void cerrarVentana(Frame2 frame2) {
-        frame2.setVisible(false);
-    }
-
-    class Evento implements ActionListener {
+    public class Evento implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             Object botonPulsado = e.getSource();
-            if (botonPulsado == buttonAceptar) {
-                setTextFieldFechaCorta(panel,
-                        Integer.valueOf((Integer) comboBoxDia.getSelectedItem()),
-                        Integer.valueOf((Integer) comboBoxMes.getSelectedItem()),
-                        Integer.valueOf((Integer) comboBoxAnio.getSelectedItem()));
-                cerrarVentana(frame2);
-            } else {
-                comboBoxDia.setSelectedIndex(0);
-                comboBoxMes.setSelectedIndex(0);
-                comboBoxAnio.setSelectedIndex(0);
+            try {
+                if (botonPulsado == buttonAceptar) {
+                    setTextFieldFechaCorta(panel,
+                            Integer.valueOf((Integer) comboBoxDia.getSelectedItem()),
+                            Integer.valueOf((Integer) comboBoxMes.getSelectedItem()),
+                            Integer.valueOf((Integer) comboBoxAnio.getSelectedItem()));
+                    setTextFieldFechaLarga(panel,
+                            Integer.valueOf((Integer) comboBoxDia.getSelectedItem()),
+                            Integer.valueOf((Integer) comboBoxMes.getSelectedItem()),
+                            Integer.valueOf((Integer) comboBoxAnio.getSelectedItem()));
+                    panel.frame2.dispose();
+                } else {
+                    comboBoxDia.setSelectedIndex(0);
+                    comboBoxMes.setSelectedIndex(0);
+                    comboBoxAnio.setSelectedIndex(0);
+                }
+            } catch (ClassCastException a) {
+                panel.frame2.setTitle("Error. Fecha no valida");
             }
         }
     }
