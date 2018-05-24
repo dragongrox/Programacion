@@ -4,8 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
-class Panel1 extends JPanel {
+class Panel extends JPanel {
 
     JComboBox jComboBox = new JComboBox();
     JTextField textField = new JTextField(10);
@@ -19,8 +20,11 @@ class Panel1 extends JPanel {
 
     int convertirA = 0;
 
-    public Panel1() {
+    Frame frame = null;
+
+    public Panel(Frame frame) {
         JPanel panelInterno1 = new JPanel();
+        this.frame = frame;
         jComboBox.addItem("Euros");
         jComboBox.addItem("Yenes");
         jComboBox.addItem("Dolares");
@@ -47,6 +51,14 @@ class Panel1 extends JPanel {
         buttonLibras.addActionListener(evento);
         JPanel panel = new JPanel();
         this.setLayout(new GridLayout(3, 1));
+        buttonEuros.setBackground(Color.green);
+    }
+
+    public void resetearColor() {
+        buttonLibras.setBackground(Color.WHITE);
+        buttonEuros.setBackground(Color.WHITE);
+        buttonDolares.setBackground(Color.WHITE);
+        buttonYenes.setBackground(Color.WHITE);
     }
 
     private class Evento implements ActionListener {
@@ -59,17 +71,31 @@ class Panel1 extends JPanel {
             if (botonPulsado == buttonAceptar) {
                 for (int cont = 0; cont < array.length; cont++) {
                     if (array[cont] == jComboBox.getSelectedItem()) {
-                        textAreaSolucion.setText((Double.parseDouble(textField.getText()) * factor1[cont] / factor1[convertirA]) + "");
+                        try {
+                            DecimalFormat df = new DecimalFormat("###.##");
+                            textAreaSolucion.setText(df.format(Double.parseDouble(textField.getText()) * factor1[cont] / factor1[convertirA]) + "");
+                        } catch (NumberFormatException a) {
+                            frame.setTitle("ERROR " + a.getMessage());
+                        }
                     }
                 }
-            } else if (botonPulsado == buttonEuros)
+            } else if (botonPulsado == buttonEuros) {
+                resetearColor();
                 convertirA = 0;
-            else if (botonPulsado == buttonYenes)
+                buttonEuros.setBackground(Color.GREEN);
+            } else if (botonPulsado == buttonYenes) {
+                resetearColor();
                 convertirA = 1;
-            else if (botonPulsado == buttonDolares)
+                buttonYenes.setBackground(Color.GREEN);
+            } else if (botonPulsado == buttonDolares) {
+                resetearColor();
                 convertirA = 2;
-            else if (botonPulsado == buttonLibras)
+                buttonDolares.setBackground(Color.GREEN);
+            } else if (botonPulsado == buttonLibras) {
+                resetearColor();
                 convertirA = 3;
+                buttonLibras.setBackground(Color.GREEN);
+            }
 
         }
     }

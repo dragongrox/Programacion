@@ -67,7 +67,7 @@ class miMarco extends JFrame{
 
     public miMarco(){
         setSize(convertirAncho(50),convertirAlto(50));
-        setTitle("Marco");
+        setTitle("Panel");
         Lamina L1=new Lamina();
         add(L1);
 

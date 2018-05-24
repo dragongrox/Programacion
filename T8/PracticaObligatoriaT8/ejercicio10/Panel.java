@@ -5,14 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class Lamina extends JPanel {
+class Panel extends JPanel {
     JButton b1 = new JButton("Azul");
     JButton b2 = new JButton("Amarillo");
     JButton b3 = new JButton("Rojo");
     JButton b4 = new JButton("Verde");
     JPanel panel = new JPanel();
 
-    public Lamina() {
+    public Panel() {
         panel.setLayout(new GridLayout(2, 2, 10, 20));
         panel.add(b1);
         panel.add(b2);

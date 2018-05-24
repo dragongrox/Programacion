@@ -3,7 +3,7 @@ package T8.PracticaObligatoriaT8.ejercicio6;
 import javax.swing.*;
 import java.awt.*;
 
-class Marco extends JFrame {
+public class Marco extends JFrame {
     Toolkit t = Toolkit.getDefaultToolkit();
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -17,7 +17,7 @@ class Marco extends JFrame {
 
     public Marco() {
         setSize(convertirAncho(25), convertirAlto(25));
-        setTitle("Marco");
+        setTitle("Panel");
         Panel L1 = new Panel();
         add(L1);
         setVisible(true);

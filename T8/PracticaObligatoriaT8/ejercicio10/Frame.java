@@ -1,9 +1,10 @@
-package T8.PracticaObligatoriaT8.ejercicio11;
+package T8.PracticaObligatoriaT8.ejercicio10;
 
 import javax.swing.*;
 import java.awt.*;
 
-class Marco extends JFrame {
+class Frame extends JFrame {
+
     Toolkit t = Toolkit.getDefaultToolkit();
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -15,11 +16,11 @@ class Marco extends JFrame {
         return (int) (porcentaje * screenSize.width / 100f);
     }
 
-    public Marco() {
-        setSize(convertirAncho(50), convertirAlto(50));
-        setTitle("Ejercicio 11");
+    public Frame() {
+        setSize(convertirAncho(25), convertirAlto(25));
+        setTitle("Ejercicio 10");
         Panel L1 = new Panel();
         add(L1);
-
     }
+
 }
