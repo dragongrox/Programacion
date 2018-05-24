@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Pruebas_rutas {
     public static void main(String[] args) {
-        File file = new File("C:\\ProgramacionDragon");
+        File file = new File("");
         System.out.println(file.getAbsolutePath());
         System.out.println(file.exists());
         String[] lista = file.list();

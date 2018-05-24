@@ -18,8 +18,7 @@ public class Frame extends JFrame {
     public Frame() {
         setSize(convertirAncho(50), convertirAlto(50));
         setTitle("Ejercicio 11");
-        Panel L1 = new Panel();
+        PanelPizza L1 = new PanelPizza(this);
         add(L1);
-
     }
 }
