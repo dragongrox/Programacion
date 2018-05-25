@@ -19,8 +19,8 @@ import java.io.Serializable;
  * Utiliza,  para  ello,  un  fichero  de  objetos  persona  y  una  clase  serializable.
  * Intenta  ser  ordenado  y  crea  3  paquetes:  uno  para  los  métodos  y  clases
  * de  la  interfaz  gráfica  Swing,  otro  paquete  para  la  clase  serializable,  y  otro
- * paquete  para  el  manejo  del  fichero. Ten  en  cuenta  tambi
- * én  que  el  campo  Nombre  tendrá  10  caracteres  como  máximo,  el  campo  Apellido  tendrá  20
+ * paquete  para  el  manejo  del  fichero. Ten  en  cuenta  también  que  el  campo  Nombre
+ * tendrá  10  caracteres  como  máximo,  el  campo  Apellido  tendrá  20
  * caracteres  como  máximo  y  el  Nif 7  u  8  números  seguidos  de  una  letra
  * mayúscula.  En  caso  de  que  no  se  cumplan  estas  condiciones,  una  ventana  emergente  (Cuadro  de  dialogo)
  * nos  avisará  de  nuestros  errores  y  no  se  volcará  la  información  al  fichero.

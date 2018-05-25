@@ -17,7 +17,7 @@ class Frame2 extends JFrame {
 
     public Frame2(Panel panel, Frame2 frame2) {
         setSize(convertirAncho(25), convertirAlto(25));
-        panel2 L1 = new panel2(panel, frame2);
+        Panel2 L1 = new Panel2(panel, frame2);
         add(L1);
         setLocationRelativeTo(null);
 

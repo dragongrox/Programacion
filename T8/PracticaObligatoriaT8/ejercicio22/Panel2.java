@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-class panel2 extends JPanel {
+public class Panel2 extends JPanel {
     JLabel label = new JLabel(" / ");
     JLabel label2 = new JLabel(" / ");
     JComboBox comboBoxDia = new JComboBox();
@@ -20,7 +20,7 @@ class panel2 extends JPanel {
     public Panel panel = null;
     public Frame2 frame2 = null;
 
-    public panel2(Panel panel, Frame2 frame2) {
+    public Panel2(Panel panel, Frame2 frame2) {
         comboBoxDia.addItem("  ");
         comboBoxMes.addItem("  ");
         comboBoxAnio.addItem("    ");
